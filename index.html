@@ -119,7 +119,8 @@
                                 <option name="employer" value="<?php echo $employer;?>">Employer</option>
                                 <option name="other" value="<?php echo $other;?>">Other</option>
                             </select>
-                            <textarea placeholder="Message" rows="3"><?php echo $comment;?></textarea>
+                            <textarea name="message" placeholder="Message" rows="3"><?php echo $comment;?></textarea>
+                            
                             <fieldset id='antispam'>
                                 <legend >Anti-spam question</legend>
                                 <span class='short_explanation'>(Please answer the simple question below. This to prevent spam bots from submitting this form)</span>
