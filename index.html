@@ -109,17 +109,28 @@
                     <h3>Contact Form</h3>
                 </header>
                 <article>
-                    <form>
-                        <input type="text" placeholder="Name">
-                        <input type="email" placeholder="Email">
-                        <select name="reason">
-                            <option value="temp">Select Reason</option>
-                            <option value="job">Job</option>
-                            <option value="employer">Employer</option>
-                            <option value="other">Other</option>
-                        </select>
-                        <textarea placeholder="Message" rows="3"></textarea>
-                        <button type="submit" class="submit">Send!</button>
+                    <form method="post" action="myform1.php" accept-charset='UTF-8'>
+                        <fieldset>
+                            <input type="text" name="name" id="name" placeholder="Name" value="<?php echo $name;?>">
+                            <input type="email" name="email" id="email" placeholder="Email" value="<?php echo $email;?>">
+                            <select name="freason">
+                                <option value="temp">Select Reason</option>
+                                <option name="job" value="<?php echo $job;?>">Job</option>
+                                <option name="employer" value="<?php echo $employer;?>">Employer</option>
+                                <option name="other" value="<?php echo $other;?>">Other</option>
+                            </select>
+                            <textarea placeholder="Message" rows="3"><?php echo $comment;?></textarea>
+                            <fieldset id='antispam'>
+                                <legend >Anti-spam question</legend>
+                                <span class='short_explanation'>(Please answer the simple question below. This to prevent spam bots from submitting this form)</span>
+                                <div class='container'>
+                                    <label for='scaptcha' ><?php echo $sim_captcha->GetSimpleCaptcha(); ?></label>
+                                    <input type='text' name='scaptcha' id='scaptcha' maxlength="10" /><br/>
+                                    <span id='contactus_scaptcha_errorloc' class='error'></span>
+                                </div>
+                            </fieldset>
+                            <button type="submit" class="submit" value="submit">Send!</button>
+                        </fieldset>
                     </form>
                 </article>
             </section><!-- /contact -->
