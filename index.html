@@ -1,3 +1,39 @@
+<?PHP
+/*
+    Contact Form from HTML Form Guide
+    This program is free software published under the
+    terms of the GNU Lesser General Public License.
+    See this page for more info:
+    http://www.html-form-guide.com/contact-form/simple-php-contact-form.html
+*/
+require_once("./include/fgcontactform.php");
+require_once("./include/simple-captcha.php");
+
+$formproc = new FGContactForm();
+$sim_captcha = new FGSimpleCaptcha('scaptcha');
+
+$formproc->EnableCaptcha($sim_captcha);
+
+//1. Add your email address here.
+//You can add more than one receipients.
+$formproc->AddRecipient('beachgirl411@gmail.com'); //<<---Put your email address here
+
+
+//2. For better security. Get a random tring from this link: http://tinyurl.com/randstr
+// and put it here
+$formproc->SetFormRandomKey('Lji8iQdtWiYQyAp');
+
+
+if(isset($_POST['submitted']))
+{
+   if($formproc->ProcessForm())
+   {
+        $formproc->RedirectToURL("thank-you.php");
+   }
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -7,11 +43,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Christine Swinkels</title>
     
-    <script src="js/nav.js" type="text/javascript"></script>
+    <script src="scripts/nav.js" type="text/javascript"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script type='text/javascript' src='scripts/gen_validatorv31.js'></script>
 
     
     <link href="css/styles.css"  type="text/css" rel="stylesheet" />
+    <link rel="STYLESHEET" type="text/css" href="css/contact.css" />
     
     <!-- Add icon library -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -109,17 +147,17 @@
                     <h3>Contact Form</h3>
                 </header>
                 <article>
-                    <form method="post" action="myform1.php" accept-charset='UTF-8'>
+                    <form method="post" action="<?php echo $formproc->GetSelfScript(); ?>" accept-charset='UTF-8'>
                         <fieldset>
-                            <input type="text" name="name" id="name" placeholder="Name" value="<?php echo $name;?>">
-                            <input type="email" name="email" id="email" placeholder="Email" value="<?php echo $email;?>">
-                            <select name="freason">
+                            <input type="text" name="name" id="name" placeholder="Name" value="<?php echo $formproc->SafeDisplay('name') ?>">
+                            <input type="email" name="email" id="email" placeholder="Email" value="<?php echo $formproc->SafeDisplay('email') ?>">
+                            <select name="reason">
                                 <option value="temp">Select Reason</option>
                                 <option name="job" value="<?php echo $job;?>">Job</option>
                                 <option name="employer" value="<?php echo $employer;?>">Employer</option>
                                 <option name="other" value="<?php echo $other;?>">Other</option>
                             </select>
-                            <textarea name="message" placeholder="Message" rows="3"><?php echo $comment;?></textarea>
+                            <textarea name="message" placeholder="Message" rows="3"><?php echo $formproc->SafeDisplay('message') ?></textarea>
                             
                             <fieldset id='antispam'>
                                 <legend >Anti-spam question</legend>
@@ -133,6 +171,25 @@
                             <button type="submit" class="submit" value="submit">Send!</button>
                         </fieldset>
                     </form>
+                    <script type='text/javascript'>
+                    // <![CDATA[
+
+                        var frmvalidator  = new Validator("contactus");
+                        frmvalidator.EnableOnPageErrorDisplay();
+                        frmvalidator.EnableMsgsTogether();
+                        frmvalidator.addValidation("name","req","Please provide your name");
+
+                        frmvalidator.addValidation("email","req","Please provide your email address");
+
+                        frmvalidator.addValidation("email","email","Please provide a valid email address");
+
+                        frmvalidator.addValidation("message","maxlen=2048","The message is too long!(more than 2KB!)");
+
+
+                        frmvalidator.addValidation("scaptcha","req","Please answer the anti-spam question");
+
+                    // ]]>
+                    </script>
                 </article>
             </section><!-- /contact -->
             <section id="returntop">
