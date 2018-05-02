@@ -1,3 +1,38 @@
+<?PHP
+/*
+    Contact Form from HTML Form Guide
+    This program is free software published under the
+    terms of the GNU Lesser General Public License.
+    See this page for more info:
+    http://www.html-form-guide.com/contact-form/simple-php-contact-form.html
+*/
+require_once("./include/fgcontactform.php");
+require_once("./include/simple-captcha.php");
+
+$formproc = new FGContactForm();
+$sim_captcha = new FGSimpleCaptcha('scaptcha');
+
+$formproc->EnableCaptcha($sim_captcha);
+
+//You can add more than one receipients.
+$formproc->AddRecipient('beachgirl411@gmail.com'); //<<---Put your email address here
+
+
+//2. For better security. Get a random tring from this link: http://tinyurl.com/randstr
+// and put it here
+$formproc->SetFormRandomKey('Lji8iQdtWiYQyAp');
+
+
+if(isset($_POST['submitted']))
+{
+   if($formproc->ProcessForm())
+   {
+        $formproc->RedirectToURL("thank-you.php");
+   }
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -111,20 +146,49 @@
                     <h3>Contact Form</h3>
                 </header>
                 <article>
-                    
-                    <form id="contact us" method="post" action="<?php echo htmlspecialchars($_SERVER['DOCUMENT_ROOT'].'/contactform.php');?>" accept-charset='UTF-8'>
-                        <input type="text" name="name" id="name" placeholder="Name" required>
-                        <input type="email" name="email" id="email" placeholder="Email" required>
-                        <select value="reason" name="reason">
-                            <option placeholder="Select Reason">Select reason (optional)</option>
-                            <option name="reason" value="job">Job</option>
-                            <option name="reason" value="employer>">Employer</option>
-                            <option name="reason" value="other>">Other</option>
-                        </select>
-                        <textarea name="message" placeholder="Message" rows="3" required></textarea>
-
-                        <button type="submit" class="submit" value="submit">Send!</button>
+                    <form id="contact us" method="post" action="contactform.php" accept-charset='UTF-8'>
+                        <fieldset>
+                            <input type="text" name="name" id="name" placeholder="Name" value="<?php echo $formproc->SafeDisplay('name') ?>">
+                            <input type="email" name="email" id="email" placeholder="Email" value="<?php echo $formproc->SafeDisplay('email') ?>">
+                            <select name="reason">
+                                <option value="temp">Select Reason</option>
+                                <option name="job" value="job">Job</option>
+                                <option name="employer" value="employer>">Employer</option>
+                                <option name="other" value="other>">Other</option>
+                            </select>
+                            <textarea name="message" placeholder="Message" rows="3"><?php echo $formproc->SafeDisplay('message') ?></textarea>
+                            
+                            <fieldset id='antispam'>
+                                <legend >Anti-spam question</legend>
+                                <span class='short_explanation'>(Please answer the simple question below. This to prevent spam bots from submitting this form)</span>
+                                <div class='container'>
+                                    <label for='scaptcha' ><?php echo $sim_captcha->GetSimpleCaptcha(); ?></label>
+                                    <input type='text' name='scaptcha' id='scaptcha' maxlength="10" /><br/>
+                                    <span id='contactus_scaptcha_errorloc' class='error'></span>
+                                </div>
+                            </fieldset>
+                            <button type="submit" class="submit" value="Submit">Send!</button>
+                        </fieldset>
                     </form>
+                    <script type='text/javascript'>
+                    // <![CDATA[
+
+                        var frmvalidator  = new Validator("contactus");
+                        frmvalidator.EnableOnPageErrorDisplay();
+                        frmvalidator.EnableMsgsTogether();
+                        frmvalidator.addValidation("name","req","Please provide your name");
+
+                        frmvalidator.addValidation("email","req","Please provide your email address");
+
+                        frmvalidator.addValidation("email","email","Please provide a valid email address");
+
+                        frmvalidator.addValidation("message","maxlen=2048","The message is too long!(more than 2KB!)");
+
+
+                        frmvalidator.addValidation("scaptcha","req","Please answer the anti-spam question");
+
+                    // ]]>
+                    </script>
                 </article>
             </section><!-- /contact -->
             <section id="returntop">
