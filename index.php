@@ -23,26 +23,8 @@
 <body>
     <!-- HEADER Section -->
     <main>
-        <header id="header">
-            <!-- NAVBAR Section -->
-            <nav id="mySidenav" class="sidenav navbar navbar-default">
-                    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-                    <a href="#about">Link1</a>
-                    <a href="#education">Link2</a>
-                    <a href="#projects">Link3</a>
-                    <a href="#contact">Link4</a>
-                <br />
-                <section class="social">
-                    <a href="#" class="fa fa-facebook"></a>
-                    <a href="#" class="fa fa-twitter"></a>
-                    <a href="#" class="fa fa-linkedin"></a>
-                    <a href="#" class="fa fa-instagram"></a>
-                </section>
-            </nav>
-            <span class="burger-menu" style="font-size:30px; cursor:pointer" onclick="openNav()">&#9776;</span>
-            <!-- NAVBAR END -->
-        </header><!-- HEADER END -->
-        
+    
+    <?php get_header(); ?>
         
         <section id="top" class="content">
             <!-- Hero Image -->
@@ -105,35 +87,14 @@
             </section><!-- /projects -->
             
             <section class="color-border"></section><!-- color-border -->
-        
-            <section id="contact"><!-- Form -->
-                <header>
-                    <h3>Contact Form</h3>
-                </header>
-                <article>
-                    
-                    <form id="contact us" method="post" action="<?php echo htmlspecialchars($_SERVER['DOCUMENT_ROOT'].'/contactform.php');?>" accept-charset='UTF-8'>
-                        <input type="text" name="name" id="name" placeholder="Name" required>
-                        <input type="email" name="email" id="email" placeholder="Email" required>
-                        <select value="reason" name="reason">
-                            <option placeholder="Select Reason">Select reason (optional)</option>
-                            <option name="reason" value="job">Job</option>
-                            <option name="reason" value="employer>">Employer</option>
-                            <option name="reason" value="other>">Other</option>
-                        </select>
-                        <textarea name="message" placeholder="Message" rows="3" required></textarea>
-
-                        <button type="submit" class="submit" value="submit">Send!</button>
-                    </form>
-                </article>
-            </section><!-- /contact -->
+            <?php get_contact(); ?>
             <section id="returntop">
                 <a href="#top"><p>Return To Top</p></a>
             </section><!-- Return to Top-->
         </section><!--  /Content --> 
-        <footer id="clearit">
-            <p>Copyright 2018 | Christine Swinkels</p>
-        </footer>
+        <?php get_footer(); ?>
     </main>
 </body>
 </html>
+
+
