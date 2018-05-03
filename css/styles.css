@@ -283,7 +283,13 @@ button.submit {
     margin: 30px auto 0px;
     border-radius: 5px;
     border: .25px #2D3142 solid;
-    box-shadow: 1px 1px 2px whitesmoke;
+    box-shadow: 0 3px whitesmoke;
+}
+
+.submit:active {
+  background-color: #92DCE5;
+  box-shadow: 0 2px #666;
+  transform: translateY(4px);
 }
 
 #returntop a {
