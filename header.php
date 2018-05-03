@@ -22,7 +22,7 @@
 
 <body>
     <!-- HEADER Section -->
-    <main>
+    <main id="wrapper">
 <header id="header">
             <!-- NAVBAR Section -->
             <nav id="mySidenav" class="sidenav navbar navbar-default">
