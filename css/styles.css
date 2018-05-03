@@ -107,6 +107,7 @@ section#education header, section#contact header {
     width: 100%;
     padding-left: 24px;
     margin-bottom: 0;
+    display: block;
 }
 
 .social a {
@@ -419,6 +420,12 @@ footer {
         border: none;
     }
     
+    .social {
+        display: block;
+    }
+    .social a {
+        display: inline;
+    }
     #header {
         margin-left: 0;
         width: 20%;

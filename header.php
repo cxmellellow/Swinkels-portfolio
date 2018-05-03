@@ -1,3 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta content="charset=uft-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Christine Swinkels</title>
+    
+    <script src="scripts/nav.js" type="text/javascript"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script type='text/javascript' src='scripts/gen_validatorv31.js'></script>
+
+    
+    <link href="css/styles.css"  type="text/css" rel="stylesheet" />
+    <link rel="STYLESHEET" type="text/css" href="css/contact.css" />
+    
+    <!-- Add icon library -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</head>
+
+<body>
+    <!-- HEADER Section -->
+    <main>
 <header id="header">
             <!-- NAVBAR Section -->
             <nav id="mySidenav" class="sidenav navbar navbar-default">
