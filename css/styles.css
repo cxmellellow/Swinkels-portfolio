@@ -421,6 +421,9 @@ footer {
         transition: 0.5s;
         padding-top: 60px;
     }
+    #burger-menu {
+        visibility: hidden;
+    }
     .burger-menu {
         background-color: #111;
         border: none;

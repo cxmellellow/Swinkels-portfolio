@@ -39,6 +39,6 @@
                     <a href="#" class="fa fa-instagram"></a>
                 </section>
             </nav>
-            <span class="burger-menu" style="font-size:30px; cursor:pointer" onclick="openNav()">&#9776;</span>
+            <span id="burger-menu" class="burger-menu" style="font-size:30px; cursor:pointer" onclick="openNav()">&#9776;</span>
             <!-- NAVBAR END -->
 </header><!-- HEADER END -->
