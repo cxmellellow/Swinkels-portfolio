@@ -1,4 +1,4 @@
-<?php require("class.phpmailer.php"); $mail = new PHPMailer();
+<?php 
 
 
 echo $_SERVER['SERVER_NAME'];
