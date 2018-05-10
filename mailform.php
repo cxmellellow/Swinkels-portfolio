@@ -1,5 +1,6 @@
 <?php
 
+
  /* This example shows making an SMTP connection with authentication.
  */
 
@@ -9,10 +10,6 @@ date_default_timezone_set('Etc/UTC');
 
 require 'phpmailer/PHPMailerAutoload.php';
 
-$users_name = $_POST['name'];
-$users_email = $_POST['email'];
-$users_website = $_POST['website'];
-$users_comment = $_POST['comment'];
 
 //Create a new PHPMailer instance
 $mail = new PHPMailer;
@@ -34,27 +31,65 @@ $mail->SMTPAuth = true;
 //Username to use for SMTP authentication
 $mail->Username = "contact@christineswinkels.com";
 //Password to use for SMTP authentication
-$mail->Password = "2superNinjas!";
+$mail->Password = ""; //insert emails password
 //Set who the message is to be sent from
-$mail->setFrom('from@example.com', 'First Last');
+$mail->setFrom('noreply@christineswinkels.com', 'Portfolio Contact Form' . $_POST['name']);
 //Set an alternative reply-to address
-$mail->addReplyTo('replyto@example.com', 'First Last');
+$mail->addReplyTo($_POST['email'], $_POST['name']);
 //Set who the message is to be sent to
 $mail->addAddress('contact@christineswinkels.com', 'Christine');
 //Set the subject line
-$mail->Subject = 'PHPMailer SMTP test';
+$mail->Subject = 'Portfolio Contact Form: ' . $_POST['reason'];
 //Read an HTML message body from an external file, convert referenced images to embedded,
-//convert HTML into a basic plain-text alternative body
-$mail->msgHTML(file_get_contents('phpmailer/examples/contents.html'), dirname(__FILE__));
-//Replace the plain text body with one created manually
-$mail->AltBody = 'This is a plain-text message body';
-//Attach an image file
-$mail->addAttachment('phpmailer/examples/images/phpmailer_mini.png');
+
+$mail->Body = $_POST['message'];
+
 
 //send the message, check for errors
 if (!$mail->send()) {
     echo "Mailer Error: " . $mail->ErrorInfo;
-} else {
-    echo "Message sent!";
+    header('Location: fail.php');
+} 
+
+    else {
+        $servername = "localhost";
+        $username = ""; //insert username that has access to database
+        $password = "";//insert usernames password
+        $dbname = "swinkies_porfolio";
+        $users_name = $_POST['name'];
+        $users_email = $_POST['email'];
+        $users_reason = $_POST['reason'];
+        $users_comment = $_POST['message'];
+
+        // Create connection
+        $conn = new mysqli($servername, $username, $password, $dbname);
+        // Check connection
+        if ($conn->connect_error) {
+            die("Connection failed: " . $conn->connect_error);
+        } 
+
+        else {
+            echo "Connection Successful";
+    
+            
+            $sql ="
+  INSERT INTO `swinkies_porfolio`.`contact_table` (`ID`, `Date`, `Client`, `Email`, `Reason`,
+        `Comment`) VALUES (NULL, 
+        CURRENT_TIMESTAMP, '$users_name',
+        '$users_email', '$users_reason', '$users_comment');";
+        }
+
+
+        if ($conn->query($sql) === TRUE) {
+            echo "New record created successfully";
+        } else {
+            echo "Error: " . $sql . "<br>" . $conn->error;
+        }
+
+        $conn->close();
+    echo "Message has been sent";
+   echo'<script>window.location.href="https://www.christineswinkels.com/sucess.php"; </script>';
 }
+        
+    
 ?>
