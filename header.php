@@ -8,8 +8,9 @@
     <title>Christine Swinkels</title>
     
     <script src="scripts/nav.js" type="text/javascript"></script>
+    <script  src='scripts/modalc.js' type='text/javascript'></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script type='text/javascript' src='scripts/gen_validatorv31.js'></script>
+    
 
     
     <link href="css/styles.css"  type="text/css" rel="stylesheet" />

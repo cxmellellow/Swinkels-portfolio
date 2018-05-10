@@ -3,7 +3,6 @@
         <h3>Contact Form</h3>
     </header>
     <article>
-
         <form id="contact us" method="post" action="<?php echo htmlspecialchars('mailform.php');?>" accept-charset='UTF-8'>
             <input type="text" name="name" id="name" placeholder="Name" required>
             <input type="email" name="email" id="email" placeholder="Email" required>
@@ -18,4 +17,5 @@
             <button type="submit" class="submit" value="submit">Send!</button>
         </form>
     </article>
+    
 </section><!-- /contact -->
