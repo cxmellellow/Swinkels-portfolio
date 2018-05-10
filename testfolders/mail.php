@@ -31,7 +31,7 @@ $mail->SMTPAuth = true;
 //Username to use for SMTP authentication
 $mail->Username = "contact@christineswinkels.com";
 //Password to use for SMTP authentication
-$mail->Password = "2superNinjas!"; //insert emails password
+$mail->Password = ""; //insert emails password
 //Set who the message is to be sent from
 $mail->setFrom('noreply@christineswinkels.com', 'Portfolio Contact Form' . $_POST['name']);
 //Set an alternative reply-to address
@@ -52,43 +52,9 @@ if (!$mail->send()) {
 } 
 
     else {
-        $servername = "localhost";
-        $username = "swinkies_admin"; //insert username that has access to database
-        $password = "G03672779!";//insert usernames password
-        $dbname = "swinkies_porfolio";
-        $users_name = $_POST['name'];
-        $users_email = $_POST['email'];
-        $users_reason = $_POST['reason'];
-        $users_comment = $_POST['message'];
-
-        // Create connection
-        $conn = new mysqli($servername, $username, $password, $dbname);
-        // Check connection
-        if ($conn->connect_error) {
-            die("Connection failed: " . $conn->connect_error);
-        } 
-
-        else {
-            echo "Connection Successful";
-    
-            
-            $sql ="
-  INSERT INTO `swinkies_porfolio`.`contact_table` (`ID`, `Date`, `Client`, `Email`, `Reason`,
-        `Comment`) VALUES (NULL, 
-        CURRENT_TIMESTAMP, '$users_name',
-        '$users_email', '$users_reason', '$users_comment');";
-        }
-
-
-        if ($conn->query($sql) === TRUE) {
-            echo "New record created successfully";
-        } else {
-            echo "Error: " . $sql . "<br>" . $conn->error;
-        }
-
         $conn->close();
     echo "Message has been sent";
-   echo'<script>window.location.href="https://www.christineswinkels.com/sucess.php"; </script>';
+    echo'<script>window.location.href="https://www.christineswinkels.com/sucess.php"; </script>';
 }
         
     

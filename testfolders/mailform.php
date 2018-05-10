@@ -31,7 +31,7 @@ $mail->SMTPAuth = true;
 //Username to use for SMTP authentication
 $mail->Username = "contact@christineswinkels.com";
 //Password to use for SMTP authentication
-$mail->Password = "2superNinjas!"; //insert emails password
+$mail->Password = ""; //insert emails password
 //Set who the message is to be sent from
 $mail->setFrom('noreply@christineswinkels.com', 'Portfolio Contact Form' . $_POST['name']);
 //Set an alternative reply-to address
@@ -53,8 +53,8 @@ if (!$mail->send()) {
 
     else {
         $servername = "localhost";
-        $username = "swinkies_admin"; //insert username that has access to database
-        $password = "G03672779!";//insert usernames password
+        $username = ""; //insert username that has access to database
+        $password = "";//insert usernames password
         $dbname = "swinkies_porfolio";
         $users_name = $_POST['name'];
         $users_email = $_POST['email'];
