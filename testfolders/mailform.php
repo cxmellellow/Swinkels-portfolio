@@ -88,7 +88,7 @@ if (!$mail->send()) {
 
         $conn->close();
     echo "Message has been sent";
-   echo'<script>window.location.href="https://www.christineswinkels.com/sucess.php"; </script>';
+   echo'<script>window.location.href="https://www.christineswinkels.com/success.php"; </script>';
 }
         
     
