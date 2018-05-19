@@ -161,10 +161,7 @@ section {
 }
 
 
-.filler {
-    
-    height: 400px;
-}
+
 #about {
     padding: 1% 5%;
 }
@@ -202,6 +199,8 @@ section#education {
 #projects {
     padding-bottom: 3%;
 }
+
+
 .filler {
     width: 50%;
     margin: 0 auto;
@@ -216,6 +215,44 @@ section#education {
 }
 
 
+html {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+.column {
+  float: left;
+  width: 33.3%;
+  margin-bottom: 16px;
+  padding: 0;
+  margin: 1%;
+}
+
+
+
+/*== scroll for projects area==*/
+
+section.scroll {
+    
+    overflow: auto;
+    white-space: nowrap;
+}
+
+section.scroll section.column {
+    display: inline-block;
+    color: white;
+    text-align: center;
+    padding: 14px;
+    text-decoration: none;
+    overflow: wrap;
+}
+
+section.scroll a:hover {
+    background-color: #777;
+}
 /*=== Form ===*/
 
 
@@ -431,6 +468,8 @@ footer {
     #clearit {
         clear: both;
     }
+    
+
    
 }
   /* used for sm devices, tablets */
@@ -511,7 +550,7 @@ footer {
         clear: both;
     }
 
-    
+
 }
   /* used for lg devices, larger desktops */
 
