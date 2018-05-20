@@ -23,7 +23,7 @@ $mail->SMTPDebug = 2;
 //Ask for HTML-friendly debug output
 $mail->Debugoutput = 'html';
 //Set the hostname of the mail server
-$mail->Host = "mail.christineswinkels.com";
+$mail->Host = "mail.christineswinkels.com"; //enter your mail host
 //Set the SMTP port number - likely to be 25, 465 or 587
 $mail->Port = 25;
 //Whether to use SMTP authentication
@@ -31,7 +31,11 @@ $mail->SMTPAuth = true;
 //Username to use for SMTP authentication
 $mail->Username = "contact@christineswinkels.com";
 //Password to use for SMTP authentication
+<<<<<<< HEAD:mailform.php
+$mail->Password = "2superNinjas!"; //insert emails password
+=======
 $mail->Password = ""; //insert emails password
+>>>>>>> 9f7ddc2083355b26aaf96d5e13ed38febcfd4f21:testfolders/mail.php
 //Set who the message is to be sent from
 $mail->setFrom('noreply@christineswinkels.com', 'Portfolio Contact Form' . $_POST['name']);
 //Set an alternative reply-to address
@@ -52,6 +56,49 @@ if (!$mail->send()) {
 } 
 
     else {
+<<<<<<< HEAD:mailform.php
+        $servername = "localhost";
+        $username = "swinkies_admin"; //insert username that has access to database
+        $password = "G03672779!";//insert usernames password
+        $dbname = "swinkies_porfolio";
+        $users_name = $_POST['name'];
+        $users_email = $_POST['email'];
+        $users_reason = $_POST['reason'];
+        $users_comment = $_POST['message'];
+
+        // Create connection
+        $conn = new mysqli($servername, $username, $password, $dbname);
+        // Check connection
+        if ($conn->connect_error) {
+            die("Connection failed: " . $conn->connect_error);
+        } 
+
+        else {
+            echo "Connection Successful";
+    
+            
+            $sql ="
+  INSERT INTO `swinkies_porfolio`.`contact_table` (`ID`, `Date`, `Client`, `Email`, `Reason`,
+        `Comment`) VALUES (NULL, 
+        CURRENT_TIMESTAMP, '$users_name',
+        '$users_email', '$users_reason', '$users_comment');";
+        }
+
+
+        if ($conn->query($sql) === TRUE) {
+            echo "New record created successfully";
+        } else {
+            echo "Error: " . $sql . "<br>" . $conn->error;
+        }
+
+        $conn->close();
+    echo "Message has been sent";
+   echo'<script>window.location.href="https://www.christineswinkels.com/sucess.php"; </script>';
+}
+        
+    
+?>
+=======
         $conn->close();
     echo "Message has been sent";
     echo'<script>window.location.href="https://www.christineswinkels.com/sucess.php"; </script>';
@@ -59,3 +106,4 @@ if (!$mail->send()) {
         
     
 ?>
+>>>>>>> 9f7ddc2083355b26aaf96d5e13ed38febcfd4f21:testfolders/mail.php

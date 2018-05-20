@@ -52,56 +52,10 @@ if (!$mail->send()) {
 } 
 
     else {
-        $servername = "localhost";
-        $username = ""; //insert username that has access to database
-        $password = "";//insert usernames password
-<<<<<<< HEAD
-        $dbname = "swinkies_porfolio";
-=======
-        $dbname = "";//enter database on host server
->>>>>>> 9f7ddc2083355b26aaf96d5e13ed38febcfd4f21
-        $users_name = $_POST['name'];
-        $users_email = $_POST['email'];
-        $users_reason = $_POST['reason'];
-        $users_comment = $_POST['message'];
-
-        // Create connection
-        $conn = new mysqli($servername, $username, $password, $dbname);
-        // Check connection
-        if ($conn->connect_error) {
-            die("Connection failed: " . $conn->connect_error);
-        } 
-
-        else {
-            echo "Connection Successful";
-    
-            
-            $sql ="
-  INSERT INTO `swinkies_porfolio`.`contact_table` (`ID`, `Date`, `Client`, `Email`, `Reason`,
-        `Comment`) VALUES (NULL, 
-        CURRENT_TIMESTAMP, '$users_name',
-        '$users_email', '$users_reason', '$users_comment');";
-        }
-
-
-        if ($conn->query($sql) === TRUE) {
-            echo "New record created successfully";
-        } else {
-            echo "Error: " . $sql . "<br>" . $conn->error;
-        }
-
         $conn->close();
     echo "Message has been sent";
-<<<<<<< HEAD
-   echo'<script>window.location.href="https://www.christineswinkels.com/success.php"; </script>';
+    echo'<script>window.location.href="https://www.christineswinkels.com/sucess.php"; </script>';
 }
         
     
 ?>
-=======
-   echo'<script>window.location.href="https://www.christineswinkels.com/sucess.php"; </script>';
-}
-        
-    
-?>
->>>>>>> 9f7ddc2083355b26aaf96d5e13ed38febcfd4f21
