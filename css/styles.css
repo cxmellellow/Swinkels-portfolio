@@ -44,11 +44,16 @@ img {
     height: 5px;
 }
 
+section {
+    background-color: whitesmoke;
+}
 section#about header {
     color: black;
     text-shadow: 1px 1px 2px #4F5D75;
 }
-
+section.social {
+    background-color: #111111;
+}
 section#education header, section#contact header {
     padding-top: 15px;
     color: white;
@@ -135,10 +140,10 @@ section#education header, section#contact header {
 
 .hero-text {
     text-align: center;
-    position: absolute;
+    position: relative;
     width: 45%;
     height: auto;
-    top: 25%;
+    
     left: 50%;
     transform: translate(-50%, -50%);
     color: white;
@@ -210,7 +215,7 @@ section#education {
     max-width: 400px;
 }
 .filler img {
-    width: 70%;
+    width: 100%;
     max-width: 480px;
 }
 
@@ -235,7 +240,8 @@ html {
 /*== scroll for projects area==*/
 
 section.scroll {
-    overflow: auto;
+    overflow-x: scroll;
+    overflow-y: hidden;
     white-space: nowrap;
 }
 
@@ -250,6 +256,153 @@ section.scroll section.column {
 section.scroll a:hover {
     background-color: #777;
 }
+/*=== Hover on projects ===*/
+
+.column {
+    position: relative;
+}
+.card {
+  opacity: 1;
+  display: block;
+  width: 100%;
+  height: auto;
+  transition: .5s ease;
+  backface-visibility: hidden;
+}
+.middle {
+  transition: .5s ease;
+  opacity: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.column:hover .card {
+  opacity: 0.3;
+}
+
+.column:hover .middle {
+  opacity: 1;
+}
+
+.text {
+  background-color: #92DCE5;
+  color: white;
+  font-size: 16px;
+  padding: 16px 32px;
+}
+/*=== Modal for projects ===*/
+
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.modal-content {
+    background-color: whitesmoke;
+    margin: 1%; /* 15% from the top and centered */
+    padding: 1%;
+    padding-bottom: .5%;
+    border: 1px solid #888;
+    border-radius: 5px;
+    width: auto; /* Could be more or less, depending on screen size */
+}
+
+
+/* The Close Button */
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* ====Modal Speedbump====*/
+
+div#speedbump {
+  display: block;
+  z-index: 9999;
+  position: absolute;
+  margin-left: 25%;
+  width: 50%;
+  height: auto;
+  background: #eeeeee;
+  border-radius: 5px;
+  top: 5%;
+}
+#speedbump h4.modal-title {
+  text-align: center;
+  text-transform: uppercase;
+  color: #004795;
+  font-size:2.5em;	
+}
+.modal-body p {
+  text-align:center;
+  font-size: 1em;
+}
+button.btn-modal:hover {
+  cursor: pointer;
+}
+button.btn-modal.btn-continue {
+  background-color: #8bc63e;
+  border: 0px;
+  border-radius: 5px;
+  margin: 1% 0;
+  padding: .5rem 1rem;
+  line-height: 1.25;
+}
+button.btn-modal.btn-close {
+  background-color: inherit;
+  border: 1px solid #030000;
+  border-radius: 5px;
+  color: #030000;
+  font-weight: 400;
+  padding: .5rem 1rem;
+  line-height: 1.25;
+}
+.modal-header .close {
+  font-size: 3.5em;
+}
+
+/*== Scrollbar ==*/
+
+#style-1::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    background-color: #F5F5F5;
+}
+
+.progress-container {
+  width: 100%;
+  height: 8px;
+  background: #ccc;
+}
+
+.progress-bar {
+  height: 8px;
+  background: #4F5D75;
+  width: 0%;
+}
+
 /*=== Form ===*/
 
 
@@ -361,42 +514,7 @@ footer {
 
 
 
-/*=== The Modal (background) ===*/
-/* Modal Header */
-.modal-header {
-    padding: 2px 16px;
-    background-color: #5cb85c;
-    color: white;
-}
 
-/* Modal Body */
-.modal-body {padding: 2px 16px;}
-
-/* Modal Footer */
-.modal-footer {
-    padding: 2px 16px;
-    background-color: #5cb85c;
-    color: white;
-}
-
-/* Modal Content */
-.modal-content {
-    position: relative;
-    background-color: #fefefe;
-    margin: auto;
-    padding: 0;
-    border: 1px solid #888;
-    width: 80%;
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
-    animation-name: animatetop;
-    animation-duration: 0.4s
-}
-
-/* Add Animation */
-@keyframes animatetop {
-    from {top: -300px; opacity: 0}
-    to {top: 0; opacity: 1}
-}
 /*=== MOBILE STYLE SECTION ===*/
 
 @media screen and (max-height: 450px) {
@@ -529,7 +647,7 @@ footer {
     }
 
     .hero-text {
-        left: 60%;
+        left: 50%;
     }
    
 

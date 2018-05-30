@@ -1,4 +1,4 @@
-<?php include 'header.php' ?>
+
     
         
         <section id="top" class="content">
@@ -25,5 +25,5 @@
             </section><!-- Return to Top-->
         </section><!--  /Content --> 
         
-        <?php include 'footer.php'?>
+       
     
