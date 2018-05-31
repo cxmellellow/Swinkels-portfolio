@@ -137,13 +137,22 @@ section#education header, section#contact header {
     
 }
 
+.hero-image-contact {
+    background-image: url("../img/email.jpg");
+    height: 100%;
+    width: auto;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    padding-top: 40%;
+}
 
 .hero-text {
     text-align: center;
     position: relative;
     width: 45%;
     height: auto;
-    
+    padding: 2% 0;
     left: 50%;
     transform: translate(-50%, -50%);
     color: white;
@@ -183,12 +192,12 @@ section#education {
     width: 100%;
     background-position: center;
     background-repeat: no-repeat;
-    background-size: auto;
+    background-size: cover;
 
 }
 
 .cert {
-    background-color: whitesmoke;
+    background-color: #ccebe9;
     border-radius: 10px;
     width: 50%;
     margin: 0 auto;

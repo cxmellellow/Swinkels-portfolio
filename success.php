@@ -1,4 +1,14 @@
 <?php include 'includes/header.php' ?>
+
+<section id="top" class="content">
+            <!-- Hero Image -->
+            <section class="hero-image-contact">
+                <section class="hero-text">
+                    <h1>Thank You!</h1>
+                    
+                </section>
+            </section>
+
 <section>
     <h1>Message Sent!</h1>
     <p>Our records show you have submitted the following:<br>
@@ -18,5 +28,7 @@
     }
     setTimeout('delayer()', 1000 * timer); 
   </script>
+
+</section><!--  /Content --> 
 
 <?php include 'includes/footer.php'?>
