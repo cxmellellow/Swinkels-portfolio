@@ -30,6 +30,9 @@ main {
     
 }
 
+div {
+    margin-right: 10px;
+}
 
 section.color-border {
     padding-top: 2%;
@@ -256,6 +259,8 @@ section.scroll {
 
 section.scroll section.column {
     display: inline-block;
+    margin-left: 5%;
+    margin-right: 5%;
     background-color: white;
     text-align: center;
     text-decoration: none;
@@ -302,6 +307,7 @@ section.scroll a:hover {
   color: white;
   font-size: 16px;
   padding: 16px 32px;
+  margin-bottom: 10px;
 }
 /*=== Modal for projects ===*/
 
@@ -332,19 +338,7 @@ section.scroll a:hover {
 
 
 /* The Close Button */
-.close {
-    color: #aaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-}
 
-.close:hover,
-.close:focus {
-    color: black;
-    text-decoration: none;
-    cursor: pointer;
-}
 
 /* ====Modal Speedbump====*/
 
@@ -376,7 +370,7 @@ button.btn-modal.btn-continue {
   background-color: #8bc63e;
   border: 0px;
   border-radius: 5px;
-  margin: 1% 0;
+  margin: 1% 1%;
   padding: .5rem 1rem;
   line-height: 1.25;
 }
@@ -393,24 +387,6 @@ button.btn-modal.btn-close {
   font-size: 3.5em;
 }
 
-/*== Scrollbar ==*/
-
-#style-1::-webkit-scrollbar-track {
-    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
-    background-color: #F5F5F5;
-}
-
-.progress-container {
-  width: 100%;
-  height: 8px;
-  background: #ccc;
-}
-
-.progress-bar {
-  height: 8px;
-  background: #4F5D75;
-  width: 0%;
-}
 
 /*=== Form ===*/
 

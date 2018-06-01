@@ -10,16 +10,18 @@
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="scripts/nav.js" type="text/javascript"></script>
-<!--    <script  src='scripts/modalc.js' type='text/javascript'></script>-->
     <script  src='scripts/modal.js' type='text/javascript'></script>
     <script src='scripts/external-popup.js' type='text/javascript'></script>
     
+    
     <!-- links for the modal window-->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"></script>
-<!--    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" rel="stylesheet">-->
+
+    <!-- stylesheets for carousel-->
+    <link rel="stylesheet" type="text/css" href="scripts/slick/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="scripts/slick/slick-theme.css"/>
     
     <link href="css/styles.css"  type="text/css" rel="stylesheet" />
-    
     <link rel="icon" href="img/portfolio-favicon.jpg" type="image/jpg" sizes="16x16"/>
     
     <!-- Add icon library -->
