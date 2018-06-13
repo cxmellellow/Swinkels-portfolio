@@ -37,13 +37,13 @@
             <!-- NAVBAR Section -->
             <nav id="mySidenav" class="sidenav navbar navbar-default">
                     <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-                    <a href="#about">About</a>
-                    <a href="#education">Education</a>
-                    <a href="#projects">Projects</a>
-                    <a href="#contact">Contact</a>
+                    <a href="#about" onclick="closeNav()">About</a>
+                    <a href="#education" onclick="closeNav()">Education</a>
+                    <a href="#projects" onclick="closeNav()">Projects</a>
+                    <a href="#contact" onclick="closeNav()">Contact</a>
                 <br />
                 <section class="social">
-                    <a href="https://www.linkedin.com/in/christine-swinkels-2916656b/" class="fa fa-linkedin"></a>
+                    <a href="https://www.linkedin.com/in/christine-swinkels-2916656b/" target="_blank"><i class="fa fa-linkedin"></i></a>
                     
                 </section>
             </nav>

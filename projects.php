@@ -1,5 +1,5 @@
 <header>
-    <h3>Projects</h3>
+    <h2>Projects</h2>
 </header>
 <article>
     <section class="slider">
@@ -93,6 +93,8 @@
         <script>
         $('.center').slick({
           centerMode: true,
+          dots: true,
+          infinite: true,
           centerPadding: '60px',
           slidesToShow: 3,
           autoplay: true,
@@ -118,6 +120,7 @@
             }
           ]
         });
+
         </script>
     </section> <!--/.filler-->
                   <!--- MODAL --->
@@ -132,11 +135,11 @@
                               <h4 class="modal-title">Notice</h4>
                             </div>
                             <div class="modal-body">
-                              <p>You are now leaving our website.</p>
+                              <p>Hit continue to open site in new window.</p>
                             </div>
                             <div class="modal-footer text-center">
                               <button type="button" title="continue" class="btn btn-modal btn-continue" data-dismiss="modal">Continue</button>
-                              <button type="button" title="go back" class="btn btn-modal btn-close" data-dismiss="modal">Go Back</button>
+                              <button type="button" title="go back" class="btn btn-modal btn-close close" data-dismiss="modal">Go Back</button>
                             </div>
                           </div>
                         </div>

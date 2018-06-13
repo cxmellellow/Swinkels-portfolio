@@ -1,6 +1,6 @@
 <section id="contact"><!-- Form -->
     <header>
-        <h3>Contact Form</h3>
+        <h2>Contact Form</h2>
     </header>
     <article>
         <form id="contact us" method="post" action="<?php echo htmlspecialchars('mailform.php');?>" accept-charset='UTF-8'>

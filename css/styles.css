@@ -71,7 +71,7 @@ section#education header, section#contact header {
     height: 100%;
     width: 0;
     position: fixed;
-    z-index: 1;
+    z-index: 150;
     top: 0;
     background-color: #111;
     overflow-x: hidden;
@@ -108,7 +108,80 @@ section#education header, section#contact header {
     padding: 0 5px 1px 5px ;
     background-color: #818181;
     border: 3px #8F8F8F inset;
-    border-radius: 10px;  
+    border-radius: 10px;
+    z-index: 149;
+    
+    -moz-box-shadow: 0px 1px 0px 0px #1c1b18;
+	-webkit-box-shadow: 0px 1px 0px 0px #1c1b18;
+	box-shadow: 0px 1px 0px 0px #1c1b18;
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #b2fffc), color-stop(1, #92dbe5));
+	background:-moz-linear-gradient(top, #b2fffc 5%, #92dbe5 100%);
+	background:-webkit-linear-gradient(top, #b2fffc 5%, #92dbe5 100%);
+	background:-o-linear-gradient(top, #b2fffc 5%, #92dbe5 100%);
+	background:-ms-linear-gradient(top, #b2fffc 5%, #92dbe5 100%);
+	background:linear-gradient(to bottom, #b2fffc 5%, #92dbe5 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#b2fffc', endColorstr='#92dbe5',GradientType=0);
+	background-color:#b2fffc;
+	-moz-border-radius:15px;
+	-webkit-border-radius:15px;
+	border-radius:15px;
+	border:2px solid #333029;
+	display:inline-block;
+	cursor:pointer;
+	color:#4f5d75;
+	font-size:14px;
+	font-weight:bold;
+	padding: 6px 10px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #ffffff;
+
+}
+
+/*
+.burger-menu:active {
+    position:relative;
+	top:-1px;
+*/
+}
+.myButton {
+	-moz-box-shadow: 0px 1px 0px 0px #1c1b18;
+	-webkit-box-shadow: 0px 1px 0px 0px #1c1b18;
+	box-shadow: 0px 1px 0px 0px #1c1b18;
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #b2fffc), color-stop(1, #92dbe5));
+	background:-moz-linear-gradient(top, #b2fffc 5%, #92dbe5 100%);
+	background:-webkit-linear-gradient(top, #b2fffc 5%, #92dbe5 100%);
+	background:-o-linear-gradient(top, #b2fffc 5%, #92dbe5 100%);
+	background:-ms-linear-gradient(top, #b2fffc 5%, #92dbe5 100%);
+	background:linear-gradient(to bottom, #b2fffc 5%, #92dbe5 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#b2fffc', endColorstr='#92dbe5',GradientType=0);
+	background-color:#b2fffc;
+	-moz-border-radius:15px;
+	-webkit-border-radius:15px;
+	border-radius:15px;
+	border:2px solid #333029;
+	display:inline-block;
+	cursor:pointer;
+	color:#4f5d75;
+	font-family:Arial;
+	font-size:14px;
+	font-weight:bold;
+	padding: 6px 10px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #ffffff;
+}
+.myButton:hover {
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #92dbe5), color-stop(1, #b2fffc));
+	background:-moz-linear-gradient(top, #92dbe5 5%, #b2fffc 100%);
+	background:-webkit-linear-gradient(top, #92dbe5 5%, #b2fffc 100%);
+	background:-o-linear-gradient(top, #92dbe5 5%, #b2fffc 100%);
+	background:-ms-linear-gradient(top, #92dbe5 5%, #b2fffc 100%);
+	background:linear-gradient(to bottom, #92dbe5 5%, #b2fffc 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#92dbe5', endColorstr='#b2fffc',GradientType=0);
+	background-color:#92dbe5;
+}
+.myButton:active {
+	position:relative;
+	top:1px;
 }
 
 .social {
@@ -498,8 +571,46 @@ footer {
 }
 
 
+/* slicker adjustments*/
 
+.slick-prev::before {
+    content: "←";
+}
+.slick-prev:before, .slick-next:before {
+    font-family: 'slick';
+    font-size: 50px;
+    line-height: 1;
+    opacity: .75;
+    color: #92DCE5;
+}
 
+.slick-prev,
+.slick-next
+{
+    z-index: 100;
+}
+
+.slick-prev
+{
+    left: 0;
+}
+[dir='rtl'] .slick-prev
+{
+    right: 0;
+    left: auto;
+}
+.slick-next 
+{
+    right: 30px;
+}
+.slick-dots {
+    position: unset;
+    padding-top: 50px;
+}
+
+#project header {
+    padding: 10px;
+}
 /*=== MOBILE STYLE SECTION ===*/
 
 @media screen and (max-height: 450px) {
@@ -553,6 +664,7 @@ footer {
 
     .hero-text {
         left: 55%;
+        font-size: 2.25em;
     }
     
     #about aside {
@@ -633,6 +745,7 @@ footer {
 
     .hero-text {
         left: 50%;
+        font-size: 2.5em;
     }
    
 
